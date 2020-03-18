@@ -14,7 +14,7 @@ from mpl_toolkits.mplot3d import Axes3D  # noqa: F401 unused import
 
 
 #Main defination used to create chaotic model
-def Chaotic(x, y, z, t =100, r=28, b=2.33):
+def Chaotic(x, y, z, t =10, r=12, b=2.667):
     '''
     Given:
        x, y, z: a point of interest in three dimensional space
@@ -23,8 +23,8 @@ def Chaotic(x, y, z, t =100, r=28, b=2.33):
        x_dot, y_dot, z_dot: values of the lorenz attractor's partial
            derivatives at the point x, y, z
     '''
-    Xdot = t * (y- x)
-    Ydot = r * x + y - x * z
+    Xdot = t * (y - x)
+    Ydot = r * x - y - x * z
     Zdot = x * y - b * z
     return Xdot, Ydot, Zdot
 
@@ -39,7 +39,7 @@ ys = np.empty(count + 1)
 zs = np.empty(count + 1)
 
 # Set initial values
-xs[0], ys[0], zs[0] = (0., 1., 1.05)
+xs[0], ys[0], zs[0] = (16, 16, 8)
 
 # Step through "time", calculating the partial derivatives at the current point
 # and using them to estimate the next point
